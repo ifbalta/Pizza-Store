@@ -1,3 +1,6 @@
+#Ignore database
+/data
+
 # Ignore OS generated files
 *.DS_STORE
 Desktop.ini
