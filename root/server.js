@@ -18,16 +18,16 @@ app.use(express.static(__dirname + '/'));
 // POST method
 app.post('/submitpizza', function(req, res){
     //retrieve toppings
-    var selectedToppings =
-        $('input[type=checkbox]:checked').map(function(_, el) {
-        return $(el).val();
-    }).get();
+    //var selectedToppings =
+    //    $('input[type=checkbox]:checked').map(function(_, el) {
+    //    return $(el).val();
+    //}).get();
     var pizzaType = req.body.pizzatype;
     var customerAddress = req.body.customeraddress;
 
     var order = {
         pizzaType : req.body.pizzatype,
-        toppings : selectedToppings,
+        toppings : ["soda"],
         customerName : req.body.customername,
         customerAddress : req.body.customeraddress,
         customerPhone : req.body.customerphone,
@@ -47,7 +47,8 @@ app.post('/submitpizza', function(req, res){
 });
 
 /**
- * Inserting the record
+ * Inserting the record.
+ * TODO Problem with db URL
  * */
 function insertOrder(order){
     MongoClient.connect('127.0.0.0.1:27017/pizzastore', function (err, db){
