@@ -2,6 +2,7 @@ var express = require("express");
 var app = express();
 var bodyParser = require('body-parser');
 var mongo = require('mongodb');
+var router = express.Router();
 var path = require("path");
 var MongoClient = mongo.MongoClient,
     format = require('util').format;
@@ -22,9 +23,10 @@ app.post('/submitpizza', function(req, res){
     //    $('input[type=checkbox]:checked').map(function(_, el) {
     //    return $(el).val();
     //}).get();
-    var pizzaType = req.body.pizzatype;
-    var customerAddress = req.body.customeraddress;
-
+  //  console.log("begin POST");
+    // var db = req.db;
+    // var collection = db.get('ordercollection');
+    // console.log(collection);
     var order = {
         pizzaType : req.body.pizzatype,
         toppings : ["soda"],
@@ -36,14 +38,12 @@ app.post('/submitpizza', function(req, res){
 
     insertOrder(order);
 
-    if(pizzaType == "cheesesupreme")pizzaType = "cheese supreme";
-    if(pizzaType == "meatlovers") pizzaType = "meat lover's"
+    // collection.insert(req.body, function (err, result) {
+    //     res.send((err == null)? {msg: ''} : {msg: err});
+    // });
 
-    var html = "Your " + pizzaType + " pizza will be arriving at " +
-    customerAddress + " soon."
-    res.send("/submitpizzatest");
-    console.log(req.body.pizzatype);
-    console.log(req.body.customername);
+    var html = "Your pizza will be arriving soon."
+    res.send(html);
 });
 
 /**
@@ -51,7 +51,7 @@ app.post('/submitpizza', function(req, res){
  * TODO Problem with db URL
  * */
 function insertOrder(order){
-    MongoClient.connect('127.0.0.0.1:27017/pizzastore', function (err, db){
+    MongoClient.connect('mongodb://localhost:27017/pizzastore?auto_reconnect', function (err, db){
         if (err) throw err;
         console.log("Connected to pizzastore");
         db.collection('ordercollection').insertOne(order, function(err, records){
