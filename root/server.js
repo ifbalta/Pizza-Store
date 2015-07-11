@@ -20,6 +20,7 @@ app.use(express.static(__dirname + '/'));
 app.post('/submitpizza', function(req, res){
     var order = {
         pizzaType : req.body.pizzatype,
+        pizzaSize : req.body.pizzasize,
         toppings : req.body.toppings,
         customerName : req.body.customername,
         customerAddress : req.body.customeraddress,
