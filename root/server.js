@@ -19,17 +19,11 @@ app.use(express.static(__dirname + '/'));
 // POST method
 app.post('/submitpizza', function(req, res){
     //retrieve toppings
-    //var selectedToppings =
-    //    $('input[type=checkbox]:checked').map(function(_, el) {
-    //    return $(el).val();
-    //}).get();
-  //  console.log("begin POST");
-    // var db = req.db;
-    // var collection = db.get('ordercollection');
-    // console.log(collection);
+
+  
     var order = {
         pizzaType : req.body.pizzatype,
-        toppings : ["soda"],
+        toppings : req.body.toppings,
         customerName : req.body.customername,
         customerAddress : req.body.customeraddress,
         customerPhone : req.body.customerphone,
@@ -43,7 +37,7 @@ app.post('/submitpizza', function(req, res){
     // });
 
     var html = "Your pizza will be arriving soon."
-    res.send(html);
+    res.send("/submitpizzatest");
 });
 
 /**
@@ -55,7 +49,9 @@ function insertOrder(order){
         if (err) throw err;
         console.log("Connected to pizzastore");
         db.collection('ordercollection').insertOne(order, function(err, records){
-           if (err) throw err;
+           if (err) {
+            console.log(err);
+           };
             console.log("Record added as " + records[0]._id);
         });
     });
