@@ -46,10 +46,14 @@ app.post('/submitpizza', function(req, res){
  * */
 function insertOrder(order){
     MongoClient.connect('mongodb://localhost:27017/pizzastore?auto_reconnect', function (err, db){
-        if (err) throw err;
+        if (err) {
+            console.log(err);
+            throw (err);
+        }
         console.log("Connected to pizzastore");
         db.collection('ordercollection').insertOne(order, function(err, records){
            if (err) {
+            throw(err);
             console.log(err);
            };
             console.log("Record added as " + records[0]._id);
