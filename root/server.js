@@ -18,43 +18,35 @@ app.use(express.static(__dirname + '/'));
 
 // POST method
 app.post('/submitpizza', function(req, res){
-    //retrieve toppings
-
-  
     var order = {
         pizzaType : req.body.pizzatype,
         toppings : req.body.toppings,
         customerName : req.body.customername,
         customerAddress : req.body.customeraddress,
         customerPhone : req.body.customerphone,
+        totalPrice : req.body.totalPrice,
         orderDate : new Date()
     };
 
     insertOrder(order);
 
-    // collection.insert(req.body, function (err, result) {
-    //     res.send((err == null)? {msg: ''} : {msg: err});
-    // });
-
+    console.log(req.body.totalPrice);
     var html = "Your pizza will be arriving soon."
-    res.send("/submitpizzatest");
+    res.send(html);
 });
 
 /**
  * Inserting the record.
- * TODO Problem with db URL
  * */
 function insertOrder(order){
     MongoClient.connect('mongodb://localhost:27017/pizzastore?auto_reconnect', function (err, db){
         if (err) {
-            console.log(err);
-            throw (err);
+            next (err);
         }
         console.log("Connected to pizzastore");
         db.collection('ordercollection').insertOne(order, function(err, records){
            if (err) {
-            throw(err);
-            console.log(err);
+            next (err);
            };
             console.log("Record added as " + records[0]._id);
         });
