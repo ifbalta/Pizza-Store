@@ -2,6 +2,7 @@ var express = require("express");
 var app = express();
 var bodyParser = require('body-parser');
 var mongo = require('mongodb');
+var mongoose require('mongoose');
 var router = express.Router();
 var path = require("path");
 var MongoClient = mongo.MongoClient,
