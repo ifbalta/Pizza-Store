@@ -8,6 +8,17 @@ var path = require("path");
 var MongoClient = mongo.MongoClient,
     format = require('util').format;
 
+var orderSchema = new mongoose.Schema({
+    pizzaType : String,
+    pizzaSize : String,
+    toppings : [String],
+    customerName : String,
+    customerAddress : String,
+    customerPhone : String,
+    totalPrice : Number,
+    orderDate : Date
+});
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
