@@ -8,6 +8,13 @@ var path = require("path");
 var MongoClient = mongo.MongoClient,
     format = require('util').format;
 
+mongoose.connect('mongodb://localhost:27017/pizzastore?auto_reconnect');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function (callback) {
+  console.log("succesful db connection...");
+});
+
 var orderSchema = new mongoose.Schema({
     pizzaType : String,
     pizzaSize : String,
@@ -18,6 +25,8 @@ var orderSchema = new mongoose.Schema({
     totalPrice : Number,
     orderDate : Date
 });
+
+var Order = mongoose.model('ordercollection', orderSchema);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,7 +39,7 @@ app.use(express.static(__dirname + '/'));
 
 // POST method
 app.post('/submitpizza', function(req, res){
-    var order = {
+    var order = new Order({
         pizzaType : req.body.pizzatype,
         pizzaSize : req.body.pizzasize,
         toppings : req.body.toppings,
@@ -39,9 +48,16 @@ app.post('/submitpizza', function(req, res){
         customerPhone : req.body.customerphone,
         totalPrice : req.body.totalPrice,
         orderDate : new Date()
-    };
+    });
+    console.log("saving");
+    order.save(function(err){
+    if(err)
+        console.log("error:" +err);
+    else
+        console.log("inserted " + order);
+    });
 
-    insertOrder(order);
+    //insertOrder(order);
 
     console.log(req.body.totalPrice);
     var html = "Your pizza will be arriving soon."

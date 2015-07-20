@@ -4,6 +4,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <script type="text/javascript"
           src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+ <!--  // <script type="text/javascript" src="calculator.js"></script>  -->     
   <title>Pizza Store</title>
 </head>
 <body>
@@ -56,6 +57,43 @@
     </p>
     <p><input type="submit"></p>  
     <!-- calculate total price-->
-  <script type="text/javascript" src="calculator.js"></script>
+  <script type="text/javascript">
+     $('#pizzaorder').on('change', function(){
+    var size = $('input[name=pizzasize]:checked').val();
+    var numberOfToppings = [];
+    var totalPrice;
+
+    $('input[name=toppings]:checked').each(function() {
+      console.log($(this).val());
+       numberOfToppings.push($(this).val());
+     });
+
+    switch (size) {
+      case 'small' :
+        totalPrice = 5;
+        break;
+      case 'medium':
+        totalPrice = 7;
+        break;
+        case 'large':
+        totalPrice = 10;
+        break;
+    }
+
+    if (numberOfToppings.length > 0) {
+      totalPrice += 1 * numberOfToppings.length;
+    }
+    console.log("Receipt");
+    console.log("size: " + size);
+    console.log("number of toppings: " + numberOfToppings.length);
+    for (var i = numberOfToppings.length - 1; i >= 0; i--) {
+      numberOfToppings[i]
+    };
+    console.log("-------------");
+    console.log("totalPrice: " + totalPrice);
+
+     $('#totalPrice').text("$ " + totalPrice);
+});     
+  </script>
   </form>
 </body>
