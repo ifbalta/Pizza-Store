@@ -36,7 +36,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/'));
 
-
 // POST method
 app.post('/submitpizza', function(req, res){
     var order = new Order({
@@ -46,13 +45,18 @@ app.post('/submitpizza', function(req, res){
         customerName : req.body.customername,
         customerAddress : req.body.customeraddress,
         customerPhone : req.body.customerphone,
-        totalPrice : req.body.totalPrice,
+        totalPrice : parseFloat(req.body.totalPrice),
         orderDate : new Date()
     });
-    console.log("saving");
+
+    console.log("saving!");
     order.save(function(err){
-    if(err)
-        console.log("error:" +err);
+    if(err) {
+        console.log("typeof totalPrice " + typeof parseFloat(req.body.totalPrice));
+        console.log("totalPrice " + parseFloat(req.body.totalPrice));
+        console.log("totalPrice " + req.body.totalPrice);
+        console.log("error: " +err);
+    }      
     else
         console.log("inserted " + order);
     });

@@ -52,8 +52,8 @@
         </label>
     </fieldset>
     <p>
-      Total Price: 
-      <div id="totalPrice"></div>
+      Total Price: $
+      <div id="totalPrice" name="totalPrice"></div>
     </p>
     <p><input type="submit"></p>  
     <!-- calculate total price-->
@@ -91,8 +91,8 @@
     };
     console.log("-------------");
     console.log("totalPrice: " + totalPrice);
-
-     $('#totalPrice').text("$ " + totalPrice);
+     $('#totalPrice').text(totalPrice);
+     console.log("typeof totalPrice " + typeof totalPrice);
 });     
   </script>
   </form>
