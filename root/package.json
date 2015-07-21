@@ -4,7 +4,7 @@
   "repository": {
     "type": "git",
     "url": "git://github.com/ifbalta/Pizza-Store.git"
-  },
+  }, 
   "version" : "0.0.1",
   "dependencies":{
     "express" : "4.x",
@@ -12,8 +12,5 @@
     "mongodb" : "*",
     "body-parser" : "*",
     "ejs" : "*"
-  },
-  "scripts" : {
-    "start" : "node server.js"
   }
 }
