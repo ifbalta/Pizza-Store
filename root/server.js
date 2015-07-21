@@ -25,13 +25,11 @@ app.post('/submitpizza', function(req, res){
         customerName : req.body.customername,
         customerAddress : req.body.customeraddress,
         customerPhone : req.body.customerphone,
-        totalPrice : req.body.totalPrice,
+        totalPrice : req.body.totalPrice.text,
         orderDate : new Date()
     };
 
     insertOrder(order);
-
-    console.log(req.body.totalPrice);
     var html = "Your pizza will be arriving soon."
     res.send(html);
 });
