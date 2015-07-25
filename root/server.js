@@ -15,6 +15,7 @@ db.once('open', function (callback) {
   console.log("succesful db connection...");
 });
 
+
 var orderSchema = new mongoose.Schema({
     pizzaType : String,
     pizzaSize : String,
@@ -38,6 +39,9 @@ app.use(express.static(__dirname + '/'));
 
 // POST method
 app.post('/submitpizza', function(req, res){
+
+
+
     var order = new Order({
         pizzaType : req.body.pizzatype,
         pizzaSize : req.body.pizzasize,
@@ -45,9 +49,10 @@ app.post('/submitpizza', function(req, res){
         customerName : req.body.customername,
         customerAddress : req.body.customeraddress,
         customerPhone : req.body.customerphone,
-        totalPrice : req.body.totalPrice.text,
         orderDate : new Date()
     });
+
+    order.totalPrice = calculateTotalPrice(order);
 
     console.log("saving!");
     order.save(function(err){
@@ -68,6 +73,30 @@ app.post('/submitpizza', function(req, res){
     var html = "Your pizza will be arriving soon."
     res.send(html);
 });
+
+function calculateTotalPrice (order) {
+
+    var result = 0;
+
+    console.log("Pizza size : " + order.pizzaSize + " " + typeof order.pizzaSize);
+    console.log("toppings : " + order.toppings + " " + typeof order.toppingss);
+
+    switch (order.pizzaSize) {
+        case 'small' :
+          result = 5;
+          break;
+        case 'medium':
+          result = 7;
+          break;
+          case 'large':
+          result = 10;
+          break;
+      }
+
+      if (order.toppings.length > 0) result += 1 * order.toppings.length;
+      return result;
+
+}
 
 /**
  * Inserting the record.
