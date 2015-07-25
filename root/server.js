@@ -51,7 +51,10 @@ app.post('/submitpizza', function(req, res){
         customerPhone : req.body.customerphone,
         orderDate : new Date()
     });
-
+    console.log(typeof order.toppings);
+    if (typeof order.toppings === 'undefined') {
+        order.toppings = [];
+    }
     order.totalPrice = calculateTotalPrice(order);
 
     console.log("saving!");
@@ -71,7 +74,11 @@ app.post('/submitpizza', function(req, res){
 
     console.log(req.body.totalPrice);
     var html = "Your pizza will be arriving soon."
-    res.send(html);
+    // res.send(html);
+    res.writeHead(302, {
+      'Location': 'ordersuccess.html'
+    });
+    res.end();
 });
 
 function calculateTotalPrice (order) {
