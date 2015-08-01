@@ -11,6 +11,7 @@
     "mongoose": "*",
     "mongodb" : "*",
     "body-parser" : "*",
-    "ejs" : "*"
+    "ejs" : "*",
+    "cookie-parser" : "*"
   }
 }

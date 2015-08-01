@@ -8,9 +8,10 @@
   <title>Pizza Store</title>
 </head>
 <body>
+  <div class="container">
   <h1>Pizza Order Form</h1>
   
-  <form class ="form-horizontal" id="pizzaorder" action="/submitpizza" method="post">
+  <form class ="form-vertical" role="form" id="pizzaorder" action="/submitpizza" method="post">
     <fieldset>
       <legend>Menu</legend>
         <input name="pizzatype" type="radio" value="pepperoni" checked>Pepperoni<br>
@@ -21,7 +22,7 @@
     </fieldset>
     <fieldset>
       <legend>Extra Toppings - $1 per topping</legend>
-      <div id="pizzaToppings">
+      <div class="form-group" id="pizzaToppings">
         <input type="checkbox" name="toppings" value="cheese">Cheese<br>
         <input type="checkbox" name="toppings" value="bellpepper">Bellpeppers<br>
         <input type="checkbox" name="toppings" value="mushroom">Mushrooms<br>
@@ -32,13 +33,14 @@
     </fieldset>
     <fieldset>
       <legend>Size</legend>
-      <div id="pizzaSize">
+      <div class="form-group" id="pizzaSize">
         <input type="radio" name="pizzasize" value="small" checked>Small - $5<br>
         <input type="radio" name="pizzasize" value="medium">Medium - $7<br>
         <input type="radio" name="pizzasize" value="large">Large - $10<br>
     </div>
     </fieldset>
-        <fieldset>
+    <fieldset>
+      <div class="form-group">
       <legend>Order Details</legend>
         <label>Name
           <input type="text" id="customername" name="customername" size="25" required><br><br>
@@ -50,13 +52,17 @@
           <input type="text" id="customerphone" name="customerphone" size="11" required>
           <br><br>
         </label>
+        </div>
     </fieldset>
     <p>
       Total Price: $
       <div id="totalPrice" name="totalPrice"></div>
     </p>
     <p><input type="submit"></p>  
-    <!-- calculate total price-->
+    
+  </form>
+  </div>
+  <!-- calculate total price-->
   <script type="text/javascript">
     var totalP;
      $('#pizzaorder').on('change', function(){
@@ -96,5 +102,4 @@
        console.log("typeof totalPrice " + typeof totalP);
 });     
   </script>
-  </form>
 </body>
