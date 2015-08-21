@@ -11,7 +11,8 @@ var orderSchema = new mongoose.Schema({
     customerAddress : String,
     customerPhone : String,
     totalPrice : Number,
-    orderDate : Date
+    orderDate : Date,
+    completed : Boolean
 });
 mongoose.connect('mongodb://localhost:27017/pizzastore?auto_reconnect');
 
