@@ -3,32 +3,32 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
-var models = require('./models/pizzamodels')
+var 
 var router = express.Router();
 var path = require("path");
 var MongoClient = mongo.MongoClient,
     format = require('util').format;
 
-// mongoose.connect('mongodb://localhost:27017/pizzastore?auto_reconnect');
-// var db = mongoose.connection;
-// db.on('error', console.error.bind(console, 'connection error:'));
-// db.once('open', function (callback) {
-//   console.log("succesful db connection...");
-// });
+mongoose.connect('mongodb://localhost:27017/pizzastore?auto_reconnect');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function (callback) {
+  console.log("succesful db connection...");
+});
 
 
-// var orderSchema = new mongoose.Schema({
-//     pizzaType : String,
-//     pizzaSize : String,
-//     toppings : [String],
-//     customerName : String,
-//     customerAddress : String,
-//     customerPhone : String,
-//     totalPrice : Number,
-//     orderDate : Date
-// });
+var orderSchema = new mongoose.Schema({
+    pizzaType : String,
+    pizzaSize : String,
+    toppings : [String],
+    customerName : String,
+    customerAddress : String,
+    customerPhone : String,
+    totalPrice : Number,
+    orderDate : Date
+});
 
-// var Order = mongoose.model('ordercollection', orderSchema);
+var Order = mongoose.model('ordercollection', orderSchema);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -41,23 +41,17 @@ app.use(express.static(__dirname + '/'));
 // POST method
 app.post('/submitpizza', function(req, res){
 
-  var order = new models.Order();
-  order.pizzaType = req.body.pizzatype;
-  order.pizzaSize = req.body.pizzasize,
-  order.toppings = req.body.toppings,
-  order.customerName = req.body.customername,
-  order.customerAddress = req.body.customeraddress,
-  order.customerPhone = req.body.customerphone,
-  order.orderDate = new Date()
-    // var order = new Order({
-    //     pizzaType : req.body.pizzatype,
-    //     pizzaSize : req.body.pizzasize,
-    //     toppings : req.body.toppings,
-    //     customerName : req.body.customername,
-    //     customerAddress : req.body.customeraddress,
-    //     customerPhone : req.body.customerphone,
-    //     orderDate : new Date()
-    // });
+
+
+    var order = new Order({
+        pizzaType : req.body.pizzatype,
+        pizzaSize : req.body.pizzasize,
+        toppings : req.body.toppings,
+        customerName : req.body.customername,
+        customerAddress : req.body.customeraddress,
+        customerPhone : req.body.customerphone,
+        orderDate : new Date()
+    });
     console.log(typeof order.toppings);
     if (typeof order.toppings === 'undefined') {
         order.toppings = [];
