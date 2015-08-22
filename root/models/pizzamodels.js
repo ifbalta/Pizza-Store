@@ -14,6 +14,14 @@ var orderSchema = new mongoose.Schema({
     orderDate : Date,
     completed : Boolean
 });
+
+// Employee Schema
+var employeeSchema = new mongoose.Schema ({
+    name : String,
+    position : String,
+    password : String
+});
+
 mongoose.connect('mongodb://localhost:27017/pizzastore?auto_reconnect');
 
 var db = mongoose.connection;
@@ -23,5 +31,7 @@ db.once('open', function (callback) {
 });
 
 var Order = mongoose.model('ordercollection', orderSchema);
+var Employee = mongoose.model('employee', employeeSchema);
 
 exports.Order = Order;
+exports.Employee = Employee;

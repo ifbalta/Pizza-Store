@@ -19,7 +19,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/'));
 
-// POST method
+app.listen(process.env.PORT || 3000);
+console.log("Started Pizza Server on port 3000");
+
+/**
+   Order Submission method
+*/
 app.post('/submitpizza', function(req, res){
 
  
@@ -34,7 +39,7 @@ app.post('/submitpizza', function(req, res){
   order.completed = false;
 
   console.log(typeof order.toppings);
-  
+
   // handle empty toppings
   if (typeof order.toppings === 'undefined') {
       order.toppings = [];
@@ -56,7 +61,9 @@ app.post('/submitpizza', function(req, res){
 });
 
 
-
+/**
+  Price calculation
+*/
 function calculateTotalPrice (order) {
     var result = 0;
     switch (order.pizzaSize) {
@@ -74,6 +81,20 @@ function calculateTotalPrice (order) {
       return result;
   }
 
+/**
+  Employee Authentication
+*/
+app.post('/authuser', function(req, res){
+  var employee = new models.Employee();
+  var user = req.body.username;
+  var pass = req.body.password;
+  console.log("body: " + req.body.username);
+  console.log("username: " + user + " password: " + pass);
+  console.log("Employee: " + employee);
+  employee.findOne({name: user}, function(err,obj) { 
+    console.log(obj);
+  });
 
-app.listen(process.env.PORT || 3000);
-console.log("started server");
+});
+
+
