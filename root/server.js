@@ -48,7 +48,7 @@ app.post('/submitpizza', function(req, res){
 
   order.save(function(err){
   if(err) {
-      console.log("error: " +err);
+      console.log("Error: " + err);
   }      
   else
       console.log("inserted " + order);
@@ -85,14 +85,23 @@ function calculateTotalPrice (order) {
   Employee Authentication
 */
 app.post('/authuser', function(req, res){
-  var employee = new models.Employee();
+  var employee = models.Employee;
   var user = req.body.username;
   var pass = req.body.password;
-  console.log("body: " + req.body.username);
-  console.log("username: " + user + " password: " + pass);
-  console.log("Employee: " + employee);
-  employee.findOne({name: user}, function(err,obj) { 
-    console.log(obj);
+  
+  employee.findOne({'name': user}, function(err,obj) { 
+    if (err) {
+      console.log("Error: " + err);
+    } else {
+      console.log(obj);
+      if (obj.password == pass) {
+          console.log("login successful");
+          res.writeHead(302, {
+            'Location': 'admin.html'
+          });
+          res.end();
+      }
+    }
   });
 
 });

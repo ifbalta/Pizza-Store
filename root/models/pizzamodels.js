@@ -20,7 +20,7 @@ var employeeSchema = new mongoose.Schema ({
     name : String,
     position : String,
     password : String
-});
+}, {collection : 'employee'});
 
 mongoose.connect('mongodb://localhost:27017/pizzastore?auto_reconnect');
 
@@ -31,7 +31,7 @@ db.once('open', function (callback) {
 });
 
 var Order = mongoose.model('ordercollection', orderSchema);
-var Employee = mongoose.model('employee', employeeSchema);
+var Employee = mongoose.model('employee', employeeSchema, 'employee');
 
 exports.Order = Order;
 exports.Employee = Employee;
