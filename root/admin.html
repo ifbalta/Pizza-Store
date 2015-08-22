@@ -9,6 +9,22 @@
   <title>Pizza Store - Administration</title>
 </head>
 <body>
-  
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Today's Orders</h1>
+          <form role="form" class ="form-vertical" method="post" action="filter">
+            <fieldset>
+                <legend>Filter Orders</legend>
+                <div class="form-group" id="orderFilter">
+                  <input type="checkbox" name="searchFilter" value="city">City<br>
+                  <input type="checkbox" name="searchFilter" value="completed">Completed<br>
+                  <input type="checkbox" name="searchFilter" value="pizzaType">Pizza Type<br>
+                  <input type="checkbox" name="searchFilter" value="date">Order Date<br>
+                </div>
+            </fieldset>
+          </form>
+        </div>
+  </div>
+
 </body>
 </html>

@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<head>
+  <meta charset="UTF-8">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <script type="text/javascript"
+          src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+ <!--  // <script type="text/javascript" src="calculator.js"></script>  -->     
+  <title>Pizza Store</title>
+</head>
+<body>
+  <div class="jumbotron">
+    <div class="container">
+    <h1>Pizza Order Form</h1>
+    
+    <form class ="form-vertical" role="form" id="pizzaorder" action="/submitpizza" method="post">
+      <fieldset>
+        <legend>Menu</legend>
+          <input name="pizzatype" type="radio" value="pepperoni" checked>Pepperoni<br>
+          <input name="pizzatype" type="radio" value="meatlovers">Meat Lover's<br>
+          <input name="pizzatype" type="radio" value="cheesesupreme">Cheese Supreme<br>
+          <input name="pizzatype" type="radio" value="hawaiian">Hawaiian<br>
+          <input name="pizzatype" type="radio" value="vegetarian">Vegetarian<br>
+      </fieldset>
+      <fieldset>
+        <legend>Extra Toppings - $1 per topping</legend>
+        <div class="form-group" id="pizzaToppings">
+          <input type="checkbox" name="toppings" value="cheese">Cheese<br>
+          <input type="checkbox" name="toppings" value="bellpepper">Bellpeppers<br>
+          <input type="checkbox" name="toppings" value="mushroom">Mushrooms<br>
+          <input type="checkbox" name="toppings" value="anchovies">Anchovies<br>
+          <input type="checkbox" name="toppings" value="jalapeno">Jalapenos<br>
+          <input type="checkbox" name="toppings" value="pepperoni">Pepperoni<br>
+      </div>
+      </fieldset>
+      <fieldset>
+        <legend>Size</legend>
+        <div class="form-group" id="pizzaSize">
+          <input type="radio" name="pizzasize" value="small" checked>Small - $5<br>
+          <input type="radio" name="pizzasize" value="medium">Medium - $7<br>
+          <input type="radio" name="pizzasize" value="large">Large - $10<br>
+      </div>
+      </fieldset>
+      <fieldset>
+        <div class="form-group">
+        <legend>Order Details</legend>
+          <label>Name
+            <input type="text" id="customername" name="customername" size="25" required><br><br>
+          </label>
+          <label>Address
+            <input type="text" id="customeraddress" name="customeraddress" size="45" required><br><br>
+          </label>
+          <label>Phone No. (Mobile/Telephone)
+            <input type="text" id="customerphone" name="customerphone" size="11" required>
+            <br><br>
+          </label>
+          </div>
+      </fieldset>
+      <p>
+        Total Price: $
+        <div id="totalPrice" name="totalPrice"></div>
+      </p>
+      <p><input type="submit"></p>  
+      
+    </form>
+    </div>
+  </div>
+  <!-- calculate total price-->
+  <script type="text/javascript">
+    var totalP;
+     $('#pizzaorder').on('change', function(){
+      var size = $('input[name=pizzasize]:checked').val();
+      var numberOfToppings = [];
+      
+
+      $('input[name=toppings]:checked').each(function() {
+        console.log($(this).val());
+         numberOfToppings.push($(this).val());
+       });
+
+      switch (size) {
+        case 'small' :
+          totalP = 5;
+          break;
+        case 'medium':
+          totalP = 7;
+          break;
+          case 'large':
+          totalP = 10;
+          break;
+      }
+
+      if (numberOfToppings.length > 0) {
+        totalP += 1 * numberOfToppings.length;
+      }
+      console.log("Receipt");
+      console.log("size: " + size);
+      console.log("number of toppings: " + numberOfToppings.length);
+      for (var i = numberOfToppings.length - 1; i >= 0; i--) {
+        numberOfToppings[i]
+      };
+      console.log("-------------");
+      console.log("totalPrice: " + totalP);
+       $('#totalPrice').text(totalP);
+       console.log("typeof totalPrice " + typeof totalP);
+});     
+  </script>
+</body>
