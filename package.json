@@ -13,5 +13,9 @@
     "body-parser" : "*",
     "ejs" : "*",
     "cookie-parser" : "*"
+  },
+  "engines": {
+    "npm": "2.x",
+    "node": "0.12.x"
   }
 }
