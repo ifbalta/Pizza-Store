@@ -22,7 +22,7 @@ var employeeSchema = new mongoose.Schema ({
     password : String
 }, {collection : 'employee'});
 
-mongoose.connect('mongodb://localhost:27017/pizzastore?auto_reconnect');
+mongoose.connect('mongodb://pizzaUserAdmin:cheesystuffedcrust@localhost:27017/pizzastore?auto_reconnect');
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -35,3 +35,4 @@ var Employee = mongoose.model('employee', employeeSchema, 'employee');
 
 exports.Order = Order;
 exports.Employee = Employee;
+
