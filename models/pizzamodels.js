@@ -30,7 +30,7 @@ db.once('open', function (callback) {
   console.log("succesful db connection...");
 });
 
-var Order = mongoose.model('ordercollection', orderSchema);
+var Order = mongoose.model('orders', orderSchema, 'orders');
 var Employee = mongoose.model('employee', employeeSchema, 'employee');
 
 exports.Order = Order;

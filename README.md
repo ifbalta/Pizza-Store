@@ -10,7 +10,7 @@ blooming-caverns-1952.herokuapp.com](
 blooming-caverns-1952.herokuapp.com)
 
 
-Database is called pizzastore and will has two collections : ordercollection and employee.
+Database is called pizzastore and will has two collections : orders and employee.
 
 ## Pricing
 All pizzas are $5 for small, $7 for medium, and $10 for large.
