@@ -15,6 +15,7 @@ var employee = models.Employee;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
+app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs');
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -140,10 +141,13 @@ app.get( '/filter', function (req, res) {
             console.log("Error: " + err);
         } else {
             console.log(orders[0].orderDate);
-            //res.send(orders);
-            res.json({"ordersResult" : orders});
-            res.end();
         }
+        //res.send(orders);
+        //res.json({"ordersResult" : orders});
+        //res.end();
+        res.render("filter.html", {
+            "orderResult" : orders
+        });
     });
 });
 

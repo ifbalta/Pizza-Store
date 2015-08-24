@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/signin.css" rel="stylesheet">
+  <script type="text/javascript"
+          src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <!--  // <script type="text/javascript" src="calculator.js"></script>  -->
+  <title>Pizza Store - Administration</title>
+</head>
+<body>
+<div class="jumbotron">
+  <div class="container">
+    <h1>Today's Orders</h1>
+    <form role="form" class ="form-vertical" method="get" action="/filter">
+      <fieldset>
+        <legend>Filter Orders</legend>
+        <div class="form-group" id="orderFilter">
+          <input type="checkbox" name="city" id="city"/>
+          <label for="city">City</label>
+          <input type="checkbox" name="completed" id="completed" />
+          <label for="completed">Completed</label>
+          <input type="checkbox" name="pizzaType" id="pizzaType" />
+          <label for="pizzaType">Pizza Type</label>
+          <input type="checkbox" name="orderDate" id="orderDate" />
+          <label for="orderDate">Order Date</label>
+        </div>
+        <button class="btn btn-lg btn-primary" type="submit">submit</button>
+      </fieldset>
+    </form>
+  </div>
+  <div class="container">
+    <table class="table">
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Pizza Type</th>
+        <th>Price</th>
+        <th>Completed?</th>
+      </tr>
+      <% for(var i = 0; i < orderResult.length; i++){ %>
+      <tr>
+        <td><% orderResult[i].name%></td>
+        <td><% orderResult[i].address%></td>
+        <td><% orderResult[i].pizzaType%></td>
+        <td><% orderResult[i].Completed%></td>
+      </tr>
+      <%}%>
+    </table>
+  </div>
+</div>
+</body>
+</html>
