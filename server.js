@@ -139,8 +139,10 @@ app.get( '/filter', function (req, res) {
         if (err) {
             console.log("Error: " + err);
         } else {
-            console.log(orders[0]);
-            res.send(orders);
+            console.log(orders[0].orderDate);
+            //res.send(orders);
+            res.json({"ordersResult" : orders});
+            res.end();
         }
     });
 });
