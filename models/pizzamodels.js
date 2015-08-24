@@ -33,6 +33,25 @@ db.once('open', function (callback) {
 var Order = mongoose.model('orders', orderSchema, 'orders');
 var Employee = mongoose.model('employee', employeeSchema, 'employee');
 
+function displayResults (err, data) {
+    if (err) {
+        return console.error(err);
+    } else {
+        console.log(data);
+    }
+}
+
+function returnResults (err, data) {
+    if (err) {
+        return console.error(err);
+    } else {
+        return data;
+    }
+}
+
 exports.Order = Order;
 exports.Employee = Employee;
+exports.getAllOrders = function () {
+    Order.find({}, displayResults);
+}
 

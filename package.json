@@ -12,7 +12,9 @@
     "mongodb" : "*",
     "body-parser" : "*",
     "ejs" : "*",
-    "cookie-parser" : "*"
+    "cookie-parser" : "*",
+    "passport" : "*",
+    "passport-local" : "*"
   },
   "engines": {
     "npm": "2.x",

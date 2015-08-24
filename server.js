@@ -9,15 +9,36 @@ var router = express.Router();
 var path = require("path");
 var MongoClient = mongo.MongoClient,
     format = require('util').format;
+/*var passport = require('passport')
+    , LocalStrategy = require('passport-local').Strategy;*/
+var employee = models.Employee;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+/*app.use(passport.initialize());
+app.use(passport.session());*/
 app.use(express.static(__dirname + '/'));
+
+/* passpost setup */
+/*passport.use(new LocalStrategy(
+    function(username, password, done) {
+        console.log(username + " " + password)
+        employee.findOne({ name: username }, function(err, user) {
+            if (err) { return done(err); }
+            if (!user) {
+                return done(null, false, { message: 'Incorrect username.' });
+            }
+            if (!user.validPassword(password)) {
+                return done(null, false, { message: 'Incorrect password.' });
+            }
+            return done(null, user);
+        });
+    }
+));*/
 
 app.listen(process.env.PORT || 3000);
 console.log("Started Pizza Server on port 3000");
@@ -85,11 +106,12 @@ function calculateTotalPrice (order) {
   Employee Authentication
 */
 app.post('/authuser', function(req, res){
-  var employee = models.Employee;
+
   var user = req.body.username;
   var pass = req.body.password;
+    console.log(user + " " + pass);
   
-  employee.findOne({'name': user}, function(err,obj) { 
+  employee.findOne({'name': user}, function(err,obj) {
     if (err) {
       console.log("Error: " + err);
     } else {
@@ -103,7 +125,24 @@ app.post('/authuser', function(req, res){
       }
     }
   });
+/*    passport.authenticate('local', { successRedirect: '/admin.html',
+        failureRedirect: '/adminlogin.html',
+        failureFlash: true })*/
 
+});
+
+/**
+ * Fetching orders
+ * */
+app.get( '/filter', function (req, res) {
+    mongoose.model('orders').find(function (err, orders) {
+        if (err) {
+            console.log("Error: " + err);
+        } else {
+            console.log(orders[0]);
+            res.send(orders);
+        }
+    });
 });
 
 
