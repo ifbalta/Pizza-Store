@@ -135,19 +135,15 @@ app.post('/authuser', function(req, res){
 /**
  * Fetching orders
  * */
-app.get( '/filter', function (req, res) {
+app.get( '/allOrders', function (req, res) {
     mongoose.model('orders').find(function (err, orders) {
         if (err) {
             console.log("Error: " + err);
         } else {
-            console.log(orders[0].orderDate);
+            console.log("Delivering orders : ");
+            console.log(orders);
+            res.json(orders);
         }
-        //res.send(orders);
-        //res.json({"ordersResult" : orders});
-        //res.end();
-        res.render("filter.html", {
-            "orderResult" : orders
-        });
     });
 });
 

@@ -1,19 +1,17 @@
 <!DOCTYPE HTML>
-<html>
+<html ng-app="orderApp">
 <head>
   <meta charset="UTF-8">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/signin.css" rel="stylesheet">
-  <script type="text/javascript"
-          src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
- <!--  // <script type="text/javascript" src="calculator.js"></script>  -->     
   <title>Pizza Store - Administration</title>
 </head>
 <body>
   <div class="jumbotron">
     <div class="container">
       <h1>Today's Orders</h1>
-          <form role="form" class ="form-vertical" method="get" action="/filter">
+        <div ng-controller="displayCtrl">
+          <form role="form" class ="form-vertical">
             <fieldset>
                 <legend>Filter Orders</legend>
                 <div class="form-group" id="orderFilter">
@@ -26,29 +24,37 @@
                   <input type="checkbox" name="orderDate" id="orderDate" />
                     <label for="orderDate">Order Date</label>
                 </div>
-                <button class="btn btn-lg btn-primary" type="submit">submit</button>
+                <button class="btn btn-lg btn-primary" ng-click="fillTable()">submit</button>
+                <button class="btn btn-lg btn-primary" ng-click="reload()">Reload</button>
             </fieldset>
           </form>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Pizza Type</th>
+                        <th>Price</th>
+                        <th>Completed?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="order in orderlist">
+                        <td>{{order.customerName}}</td>
+                        <td>{{order.customerAddress}}</td>
+                        <td>{{order.pizzaType}}</td>
+                        <td>{{order.totalPrice}}</td>
+                        <td>{{order.completed}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-      <div class="container">
-          <table class="table">
-              <tr>
-                  <th>Name</th>
-                  <th>Address</th>
-                  <th>Pizza Type</th>
-                  <th>Price</th>
-                  <th>Completed?</th>
-              </tr>
-              <% for (var i = 0; i < orderResult.length); i++){ %>
-              <tr>
-                  <td><%orderResult[i].name%></td>
-                  <td><%orderResult[i].address%></td>
-                  <td><%orderResult[i].pizzaType%></td>
-                  <td><%orderResult[i].Completed%></td>
-              </tr>
-              <%}%>
-          </table>
-      </div>
+    </div>
+
   </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+  <script src="controllers/controller.js"></script>
+  <script type="text/javascript"
+          src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </body>
 </html>
