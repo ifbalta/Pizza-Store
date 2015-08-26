@@ -15,17 +15,14 @@
             <fieldset>
                 <legend>Filter Orders</legend>
                 <div class="form-group" id="orderFilter">
-                  <input type="checkbox" name="city" id="city"/>
-                    <label for="city">City</label>
-                  <input type="checkbox" name="completed" id="completed" />
-                    <label for="completed">Completed</label>
-                  <input type="checkbox" name="pizzaType" id="pizzaType" />
-                    <label for="pizzaType">Pizza Type</label>
-                  <input type="checkbox" name="orderDate" id="orderDate" />
-                    <label for="orderDate">Order Date</label>
+                  <label ng-repeat="crit in criteria">
+                      <input type="checkbox" checklist-model="query.criteria" checklist-value="crit">
+                      {{crit}}
+                  </label>
                 </div>
-                <button class="btn btn-lg btn-primary" ng-click="fillTable()">submit</button>
-                <button class="btn btn-lg btn-primary" ng-click="reload()">Reload</button>
+                <button class="btn btn-primary" ng-click="fillTable()">submit</button>
+                <button class="btn btn-primary" ng-click="reload()">reload</button>
+                Hey guys: {{query.criteria}}
             </fieldset>
           </form>
             <table class="table">
@@ -52,7 +49,8 @@
     </div>
 
   </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+  <script src="bower_components/checklist-model/checklist-model.js"></script>
   <script src="controllers/controller.js"></script>
   <script type="text/javascript"
           src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
