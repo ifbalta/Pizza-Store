@@ -35,4 +35,8 @@ orderApp.controller ('displayCtrl', ['$scope', '$http', function ($scope, $http)
         console.log("Reloading page");
         refresh();
     };
+
+    $scope.completeOrders = function () {
+        console.log("I'm gonna update orders");
+    }
 }]);

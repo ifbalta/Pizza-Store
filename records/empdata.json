@@ -1,0 +1,17 @@
+{
+    "name" : "test",
+    "position" : "Test Employee",
+    "password" : "test"
+}
+{
+    "name" : "admin",
+    "position" : "Administration",
+    "password" : "admin"
+}
+{
+"name" : "Spongebob Squarepants",
+"position" : "Burget Chef",
+"password" : "imalwaysready"
+}
+
+

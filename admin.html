@@ -22,7 +22,6 @@
                 </div>
                 <button class="btn btn-primary" ng-click="fillTable()">submit</button>
                 <button class="btn btn-primary" ng-click="reload()">reload</button>
-                Hey guys: {{query.criteria}}
             </fieldset>
           </form>
             <table class="table">
@@ -41,10 +40,13 @@
                         <td>{{order.customerAddress}}</td>
                         <td>{{order.pizzaType}}</td>
                         <td>{{order.totalPrice}}</td>
-                        <td>{{order.completed}}</td>
+                        <td><input type="checkbox" ng-model="order.completed"></td>
+
                     </tr>
+
                 </tbody>
             </table>
+            <button class="btn btn-primary" ng-click="completeOrders()">Complete Orders</button>
         </div>
     </div>
 

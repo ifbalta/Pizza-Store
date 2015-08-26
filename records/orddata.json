@@ -1,0 +1,44 @@
+{
+  "pizzaType" : "pepperoni",
+  "pizzaSize" : "Small",
+  "toppings" : [],
+  "customerName" : "Isabel Baltazar",
+  "customerAddress" : "623 RO Santos St",
+  "customerPhone" : "027 9179593",
+  "totalPrice" : "5",
+  "orderDate" : "May 23, 1993",
+  "completed" : false
+}
+{
+  "pizzaType" : "cheese",
+  "pizzaSize" : "Large",
+  "toppings" : [],
+  "customerName" : "Ana Baltazar",
+  "customerAddress" : "512 Chewings Road",
+  "customerPhone" : "027 9179593",
+  "totalPrice" : "10",
+  "orderDate" : "Jun 11, 1994",
+"completed" : false
+}
+{
+  "pizzaType" : "hawaiian",
+  "pizzaSize" : "Medium",
+  "toppings" : [],
+  "customerName" : "Patricia Baltazar",
+  "customerAddress" : "82 Hillas Road",
+  "customerPhone" : "021 08308533",
+  "totalPrice" : "7",
+  "orderDate" : "Feb 1, 1996",
+  "completed" : false
+}
+{
+  "pizzaType" : "jalapeno",
+  "pizzaSize" : "Large",
+  "toppings" : ["chocolate chips"],
+  "customerName" : "Cookie Monster",
+  "customerAddress" : "Sesame Street",
+  "customerPhone" : "123 45678",
+  "totalPrice" : "10",
+  "orderDate" : "Nov 10, 1969",
+  "completed" : true
+}
