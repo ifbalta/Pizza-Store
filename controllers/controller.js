@@ -38,5 +38,11 @@ orderApp.controller ('displayCtrl', ['$scope', '$http', function ($scope, $http)
 
     $scope.completeOrders = function () {
         console.log("I'm gonna update orders");
+        /*
+        * For each order in orderlist,
+        * if order.completed == true
+        * add to completedList,
+        * send to $http.update('/updateOrders')
+        * */
     }
 }]);
