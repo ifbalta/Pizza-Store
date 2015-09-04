@@ -59,7 +59,7 @@
         Total Price: $
         <div id="totalPrice" name="totalPrice"></div>
       </p>
-      <p><input type="submit"></p>  
+      <p><input type="submit"></p>
       
     </form>
     </div>
@@ -67,41 +67,44 @@
   <!-- calculate total price-->
   <script type="text/javascript">
     var totalP;
-     $('#pizzaorder').on('change', function(){
-      var size = $('input[name=pizzasize]:checked').val();
-      var numberOfToppings = [];
-      
+    function updatePrice () {
+        var size = $('input[name=pizzasize]:checked').val();
+        var numberOfToppings = [];
+        $('input[name=toppings]:checked').each(function() {
+            console.log($(this).val());
+            numberOfToppings.push($(this).val());
+        });
+        switch (size) {
+            case 'small' :
+                totalP = 5;
+                break;
+            case 'medium':
+                totalP = 7;
+                break;
+            case 'large':
+                totalP = 10;
+                break;
+        }
+        if (numberOfToppings.length > 0) {
+            totalP += 1 * numberOfToppings.length;
+        }
+        console.log("Receipt");
+        console.log("size: " + size);
+        console.log("number of toppings: " + numberOfToppings.length);
+        for (var i = numberOfToppings.length - 1; i >= 0; i--) {
+            numberOfToppings[i]
+        };
+        console.log("-------------");
+        console.log("totalPrice: " + totalP);
+        $('#totalPrice').text(totalP);
+        console.log("typeof totalPrice " + typeof totalP);
+    }
+     $('#pizzaorder').on('change', updatePrice());
 
-      $('input[name=toppings]:checked').each(function() {
-        console.log($(this).val());
-         numberOfToppings.push($(this).val());
-       });
-
-      switch (size) {
-        case 'small' :
-          totalP = 5;
-          break;
-        case 'medium':
-          totalP = 7;
-          break;
-          case 'large':
-          totalP = 10;
-          break;
-      }
-
-      if (numberOfToppings.length > 0) {
-        totalP += 1 * numberOfToppings.length;
-      }
-      console.log("Receipt");
-      console.log("size: " + size);
-      console.log("number of toppings: " + numberOfToppings.length);
-      for (var i = numberOfToppings.length - 1; i >= 0; i--) {
-        numberOfToppings[i]
-      };
-      console.log("-------------");
-      console.log("totalPrice: " + totalP);
-       $('#totalPrice').text(totalP);
-       console.log("typeof totalPrice " + typeof totalP);
-});     
+      $(function () {
+          console.log("I'm ready");
+          alert("hey grl");
+          updatePrice();
+      });
   </script>
 </body>
