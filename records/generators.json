@@ -1,0 +1,36 @@
+[
+  {
+    'repeat:25': {
+      _id: '{{objectId()}}',
+      pizzaType: '{{random ("pepperoni", "meatlovers", "vegetarian", "cheesesupreme", "hawaiin", "vegetarian")}}',
+      toppings: function () {
+  var i = Math.random();
+  var result = [];
+  if (i < 1/6) {
+  result.push("bellpepper");
+}
+  if (i < 2/6) {
+  result.push("cheese");
+}
+  if (i < 3/6) {
+  result.push("mushroom");
+}
+  if (i < 4/6) {
+  result.push("anchovies");
+}
+  if (i < 5/6) {
+  result.push("jalapenos");
+}
+  if (i < 6/6) {
+  result.push("pepperoni");
+}
+  return result;
+},
+  customerName: '{{firstName()}} {{surname()}}',
+  customerAddress: '{{surname()}} {{integer(1, 30)}}, {{random ("Street", "Avenue", "Boulevard")}} {{city()}}',
+  totalPrice: '{{integer (0, 16)}}',
+  orderDate: '{{moment(this.date(new Date(2014, 0, 1), new Date())).format("MMMM Do YYYY")}}',
+  completed : '{{bool()}}'
+  }
+}
+]

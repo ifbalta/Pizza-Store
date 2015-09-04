@@ -1,44 +1,401 @@
-{
-  "pizzaType" : "pepperoni",
-  "pizzaSize" : "Small",
-  "toppings" : [],
-  "customerName" : "Isabel Baltazar",
-  "customerAddress" : "623 RO Santos St",
-  "customerPhone" : "027 9179593",
-  "totalPrice" : "5",
-  "orderDate" : "May 23, 1993",
+  {
+    "pizzaType" : "pepperoni",
+    "pizzaSize" : "Small",
+    "toppings" : [],
+    "customerName" : "Isabel Baltazar",
+    "customerAddress" : "623 RO Santos St",
+    "customerPhone" : "027 9179593",
+    "totalPrice" : "5",
+    "orderDate" : "May 23, 1993",
+    "completed" : false
+  }
+  {
+    "pizzaType" : "cheese",
+    "pizzaSize" : "Large",
+    "toppings" : [],
+    "customerName" : "Ana Baltazar",
+    "customerAddress" : "512 Chewings Road",
+    "customerPhone" : "027 9179593",
+    "totalPrice" : "10",
+    "orderDate" : "Jun 11, 1994",
   "completed" : false
-}
-{
-  "pizzaType" : "cheese",
-  "pizzaSize" : "Large",
-  "toppings" : [],
-  "customerName" : "Ana Baltazar",
-  "customerAddress" : "512 Chewings Road",
-  "customerPhone" : "027 9179593",
-  "totalPrice" : "10",
-  "orderDate" : "Jun 11, 1994",
-"completed" : false
-}
-{
-  "pizzaType" : "hawaiian",
-  "pizzaSize" : "Medium",
-  "toppings" : [],
-  "customerName" : "Patricia Baltazar",
-  "customerAddress" : "82 Hillas Road",
-  "customerPhone" : "021 08308533",
-  "totalPrice" : "7",
-  "orderDate" : "Feb 1, 1996",
-  "completed" : false
-}
-{
-  "pizzaType" : "jalapeno",
-  "pizzaSize" : "Large",
-  "toppings" : ["chocolate chips"],
-  "customerName" : "Cookie Monster",
-  "customerAddress" : "Sesame Street",
-  "customerPhone" : "123 45678",
-  "totalPrice" : "10",
-  "orderDate" : "Nov 10, 1969",
-  "completed" : true
-}
+  }
+  {
+    "pizzaType" : "hawaiian",
+    "pizzaSize" : "Medium",
+    "toppings" : [],
+    "customerName" : "Patricia Baltazar",
+    "customerAddress" : "82 Hillas Road",
+    "customerPhone" : "021 08308533",
+    "totalPrice" : "7",
+    "orderDate" : "Feb 1, 1996",
+    "completed" : false
+  }
+  {
+    "pizzaType" : "jalapeno",
+    "pizzaSize" : "Large",
+    "toppings" : ["chocolate chips"],
+    "customerName" : "Cookie Monster",
+    "customerAddress" : "Sesame Street",
+    "customerPhone" : "123 45678",
+    "totalPrice" : "10",
+    "orderDate" : "Nov 10, 1969",
+    "completed" : true
+  }
+  {
+  "_id": "55e97aa111eb086ddf40a8a0",
+  "pizzaType": "meatlovers",
+  "toppings": [
+  "bellpepper",
+  "cheese",
+  "mushroom",
+  "anchovies",
+  "jalapenos",
+  "pepperoni"
+  ],
+  "customerName": "Merritt Gray",
+  "customerAddress": "Lawrence 22, Street Coldiron",
+  "totalPrice": 12,
+  "orderDate": "April 26th 2015",
+  "completed": true
+  }
+  {
+  "_id": "55e97aa119a681f9dfe8c564",
+  "pizzaType": "vegetarian",
+  "toppings": [
+  "jalapenos",
+  "pepperoni"
+  ],
+  "customerName": "Robertson Newman",
+  "customerAddress": "Barry 22, Avenue Condon",
+  "totalPrice": 15,
+  "orderDate": "July 19th 2015",
+  "completed": true
+  }
+  {
+  "_id": "55e97aa1bb005639f5d87af6",
+  "pizzaType": "meatlovers",
+  "toppings": [
+  "pepperoni"
+  ],
+  "customerName": "Randolph Pitts",
+  "customerAddress": "Little 20, Boulevard Canoochee",
+  "totalPrice": 7,
+  "orderDate": "June 4th 2015",
+  "completed": false
+  }
+  {
+  "_id": "55e97aa193ffc8c145b66844",
+  "pizzaType": "cheesesupreme",
+  "toppings": [
+  "anchovies",
+  "jalapenos",
+  "pepperoni"
+  ],
+  "customerName": "Cherry Fletcher",
+  "customerAddress": "Montgomery 11, Avenue Sutton",
+  "totalPrice": 14,
+  "orderDate": "June 19th 2015",
+  "completed": true
+  }
+  {
+  "_id": "55e97aa12467041eb8482fe6",
+  "pizzaType": "vegetarian",
+  "toppings": [
+  "cheese",
+  "mushroom",
+  "anchovies",
+  "jalapenos",
+  "pepperoni"
+  ],
+  "customerName": "Tracey Odom",
+  "customerAddress": "Stanton 13, Boulevard Camino",
+  "totalPrice": 10,
+  "orderDate": "November 1st 2014",
+  "completed": true
+  }
+  {
+  "_id": "55e97aa1c20c2e4e94c726af",
+  "pizzaType": "pepperoni",
+  "toppings": [
+  "jalapenos",
+  "pepperoni"
+  ],
+  "customerName": "Carroll Berg",
+  "customerAddress": "Walsh 12, Street Omar",
+  "totalPrice": 11,
+  "orderDate": "February 4th 2015",
+  "completed": false
+  }
+  {
+  "_id": "55e97aa14691cdd6724a1e39",
+  "pizzaType": "vegetarian",
+  "toppings": [
+  "bellpepper",
+  "cheese",
+  "mushroom",
+  "anchovies",
+  "jalapenos",
+  "pepperoni"
+  ],
+  "customerName": "Hollie Garrett",
+  "customerAddress": "Hancock 26, Street Frizzleburg",
+  "totalPrice": 3,
+  "orderDate": "January 26th 2014",
+  "completed": false
+  }
+  {
+  "_id": "55e97aa1d9285d7b49b5f766",
+  "pizzaType": "meatlovers",
+  "toppings": [
+  "cheese",
+  "mushroom",
+  "anchovies",
+  "jalapenos",
+  "pepperoni"
+  ],
+  "customerName": "Buckner Booker",
+  "customerAddress": "Cruz 16, Boulevard Thornport",
+  "totalPrice": 1,
+  "orderDate": "July 22nd 2015",
+  "completed": true
+  }
+  {
+  "_id": "55e97aa1d14ace5c134881e4",
+  "pizzaType": "vegetarian",
+  "toppings": [
+  "pepperoni"
+  ],
+  "customerName": "Pacheco Leblanc",
+  "customerAddress": "Munoz 27, Boulevard Kennedyville",
+  "totalPrice": 7,
+  "orderDate": "March 20th 2014",
+  "completed": false
+  }
+  {
+  "_id": "55e97aa1edab2fac7e7115fd",
+  "pizzaType": "pepperoni",
+  "toppings": [
+  "anchovies",
+  "jalapenos",
+  "pepperoni"
+  ],
+  "customerName": "Small Acevedo",
+  "customerAddress": "Hubbard 6, Boulevard Gracey",
+  "totalPrice": 1,
+  "orderDate": "February 3rd 2015",
+  "completed": false
+  }
+  {
+  "_id": "55e97aa11a3740e71099f165",
+  "pizzaType": "meatlovers",
+  "toppings": [
+  "pepperoni"
+  ],
+  "customerName": "Rena Holloway",
+  "customerAddress": "Watkins 9, Avenue Crown",
+  "totalPrice": 5,
+  "orderDate": "September 3rd 2014",
+  "completed": true
+  }
+  {
+  "_id": "55e97aa1b6a333f4c67ba14a",
+  "pizzaType": "pepperoni",
+  "toppings": [
+  "jalapenos",
+  "pepperoni"
+  ],
+  "customerName": "Candice Carver",
+  "customerAddress": "Weber 5, Street Stevens",
+  "totalPrice": 3,
+  "orderDate": "June 24th 2015",
+  "completed": true
+  }
+  {
+  "_id": "55e97aa11dfe3d45403342ea",
+  "pizzaType": "meatlovers",
+  "toppings": [
+  "bellpepper",
+  "cheese",
+  "mushroom",
+  "anchovies",
+  "jalapenos",
+  "pepperoni"
+  ],
+  "customerName": "Elinor Moss",
+  "customerAddress": "Fox 24, Avenue Loretto",
+  "totalPrice": 5,
+  "orderDate": "January 16th 2015",
+  "completed": false
+  }
+  {
+  "_id": "55e97aa17f818624f9043c12",
+  "pizzaType": "vegetarian",
+  "toppings": [
+  "jalapenos",
+  "pepperoni"
+  ],
+  "customerName": "Elena Christensen",
+  "customerAddress": "Mckay 19, Avenue Datil",
+  "totalPrice": 14,
+  "orderDate": "January 17th 2015",
+  "completed": false
+  }
+  {
+  "_id": "55e97aa132f3c039df9713da",
+  "pizzaType": "meatlovers",
+  "toppings": [
+  "anchovies",
+  "jalapenos",
+  "pepperoni"
+  ],
+  "customerName": "Juliana Norton",
+  "customerAddress": "Carter 16, Boulevard Templeton",
+  "totalPrice": 2,
+  "orderDate": "August 9th 2014",
+  "completed": false
+  }
+  {
+  "_id": "55e97aa15665193eb5a6aef7",
+  "pizzaType": "meatlovers",
+  "toppings": [
+  "pepperoni"
+  ],
+  "customerName": "Erickson Garrison",
+  "customerAddress": "Hobbs 3, Street Alafaya",
+  "totalPrice": 13,
+  "orderDate": "June 6th 2015",
+  "completed": false
+  }
+  {
+  "_id": "55e97aa1cfea147809717f4e",
+  "pizzaType": "pepperoni",
+  "toppings": [
+  "jalapenos",
+  "pepperoni"
+  ],
+  "customerName": "Jannie Kemp",
+  "customerAddress": "Gardner 18, Boulevard Roland",
+  "totalPrice": 7,
+  "orderDate": "April 27th 2015",
+  "completed": false
+  }
+  {
+  "_id": "55e97aa1c23d4916ae134cd2",
+  "pizzaType": "meatlovers",
+  "toppings": [
+  "jalapenos",
+  "pepperoni"
+  ],
+  "customerName": "Mcdonald Blankenship",
+  "customerAddress": "Stewart 6, Avenue Kilbourne",
+  "totalPrice": 10,
+  "orderDate": "March 5th 2014",
+  "completed": false
+  }
+  {
+  "_id": "55e97aa19d36607b018da49c",
+  "pizzaType": "cheesesupreme",
+  "toppings": [
+  "mushroom",
+  "anchovies",
+  "jalapenos",
+  "pepperoni"
+  ],
+  "customerName": "Meadows Miranda",
+  "customerAddress": "Gould 30, Boulevard Caron",
+  "totalPrice": 15,
+  "orderDate": "April 5th 2014",
+  "completed": false
+  }
+  {
+  "_id": "55e97aa14b57a30d0cf8ec8c",
+  "pizzaType": "pepperoni",
+  "toppings": [
+  "bellpepper",
+  "cheese",
+  "mushroom",
+  "anchovies",
+  "jalapenos",
+  "pepperoni"
+  ],
+  "customerName": "Hardy Alvarez",
+  "customerAddress": "Brewer 20, Avenue Johnsonburg",
+  "totalPrice": 13,
+  "orderDate": "March 6th 2015",
+  "completed": true
+  }
+  {
+  "_id": "55e97aa18637891c8395bc9a",
+  "pizzaType": "hawaiin",
+  "toppings": [
+  "mushroom",
+  "anchovies",
+  "jalapenos",
+  "pepperoni"
+  ],
+  "customerName": "Hoffman Contreras",
+  "customerAddress": "Vaughan 24, Boulevard Hiseville",
+  "totalPrice": 3,
+  "orderDate": "November 17th 2014",
+  "completed": true
+  }
+  {
+  "_id": "55e97aa1063306d42def3d63",
+  "pizzaType": "vegetarian",
+  "toppings": [
+  "anchovies",
+  "jalapenos",
+  "pepperoni"
+  ],
+  "customerName": "Hopkins Banks",
+  "customerAddress": "Sutton 19, Street Manchester",
+  "totalPrice": 2,
+  "orderDate": "March 24th 2014",
+  "completed": false
+  }
+  {
+  "_id": "55e97aa167ac0d9445038d7d",
+  "pizzaType": "meatlovers",
+  "toppings": [
+  "mushroom",
+  "anchovies",
+  "jalapenos",
+  "pepperoni"
+  ],
+  "customerName": "Higgins Lopez",
+  "customerAddress": "Alexander 17, Street Edneyville",
+  "totalPrice": 14,
+  "orderDate": "April 13th 2015",
+  "completed": true
+  }
+  {
+  "_id": "55e97aa1bcf5306d5240cdf1",
+  "pizzaType": "hawaiin",
+  "toppings": [
+  "mushroom",
+  "anchovies",
+  "jalapenos",
+  "pepperoni"
+  ],
+  "customerName": "Britney Maxwell",
+  "customerAddress": "Fisher 18, Boulevard Naomi",
+  "totalPrice": 5,
+  "orderDate": "June 13th 2015",
+  "completed": true
+  }
+  {
+  "_id": "55e97aa1466fab42f9222d9a",
+  "pizzaType": "meatlovers",
+  "toppings": [
+  "anchovies",
+  "jalapenos",
+  "pepperoni"
+  ],
+  "customerName": "Morrison Harrison",
+  "customerAddress": "Parker 2, Street Ezel",
+  "totalPrice": 2,
+  "orderDate": "September 21st 2014",
+  "completed": true
+  }
+
