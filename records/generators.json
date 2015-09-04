@@ -2,7 +2,7 @@
   {
     'repeat:25': {
       _id: '{{objectId()}}',
-      pizzaType: '{{random ("pepperoni", "meatlovers", "vegetarian", "cheesesupreme", "hawaiian", "vegetarian")}}',
+      pizzaType: '{{random ("pepperoni", "meatlovers", "vegetarian", "cheese", "hawaiian", "vegetarian")}}',
       toppings: function () {
   var i = Math.random();
   var result = [];
@@ -28,7 +28,7 @@
 },
   customerName: '{{firstName()}} {{surname()}}',
   customerAddress: '{{integer(1, 30)}} {{surname()}} {{random ("Street", "Avenue", "Boulevard")}}, {{city()}} City',
-  totalPrice: '{{integer (0, 16)}}',
+  totalPrice: '{{integer (5, 16)}}',
   orderDate: '{{moment(this.date(new Date(2014, 0, 1), new Date())).format("MMMM Do YYYY")}}',
   completed : '{{bool()}}'
   }
